@@ -5,7 +5,6 @@ import br.com.catolica.biblioteca.entity.Livro;
 import br.com.catolica.biblioteca.enums.EnumCategoria;
 import br.com.catolica.biblioteca.enums.EnumDistribuicao;
 import br.com.catolica.biblioteca.repository.LivroRepository;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,7 +15,6 @@ import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.event.annotation.AfterTestClass;
 
 import java.util.Arrays;
 import java.util.List;
@@ -70,7 +68,7 @@ class BibliotecaApplicationTests {
 
         ResponseEntity<?> response = livroController.criar(livroMock);
 
-        assertEquals(200, response.getStatusCodeValue());
+        assertEquals(201, response.getStatusCodeValue());
         assertNotNull(response.getBody());
         verify(livroRepository).save(any(Livro.class));
     }

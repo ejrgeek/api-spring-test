@@ -50,7 +50,7 @@ public class LivroController {
         }
         try {
             Livro criado = livroRepository.save(livro);
-            return ResponseEntity.status(200).body(criado);
+            return ResponseEntity.status(201).body(criado);
         }catch (Exception e){
             return ResponseEntity.status(400).body(String.format("Erro ao criar: %s", e));
         }
